@@ -21,7 +21,7 @@
     "start-dev": "nodemon --exec babel-node server/app.js",
     "build": "babel server --out-dir dist",
     "setup-uploads": "mkdir uploads",
-    "heroku-postbuild": "npm run setup-uploads"
+    "heroku-postbuild": "npm run build && npm run setup-uploads"
   },
   "author": "",
   "license": "ISC"
