@@ -1,7 +1,6 @@
-
 const validateNewProduct = (req, res, next) => {
-    const { productName, description, price, numberInStock } = req.body;
-    if (!productName || !description || !price || !numberInStock) {
+    const { productName, description } = req.body;
+    if (!productName || !description) {
         return res.send({ error: "please fill up required fields"})
     }
     next();

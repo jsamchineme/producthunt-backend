@@ -1,4 +1,3 @@
-
 const validateNewReview = (req, res, next) => {
     const { content } = req.body;
     if (!req.query.productId) {
