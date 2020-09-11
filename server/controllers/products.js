@@ -5,16 +5,17 @@ export let allProducts = [
         "id": uuid(),
         "productName": "dummy name",
         "description": "dummy description",
-        "banner_img": "http://localhost:3000/uploads/image1.jpg",
+        "bannerImage": "http://localhost:3000/uploads/image1.jpg",
     }
 ]
 
 export const createNewProduct = (req, res) => {
-    // TODO - image upload
+    const host =  req.get('host');
     const newProduct = {
         id: uuid(),
         productName: req.body.productName,
         description: req.body.description,
+        bannerImage: `${req.protocol}://${host}/uploads/${req.file.filename}`,
     }
 
     allProducts.push(newProduct)

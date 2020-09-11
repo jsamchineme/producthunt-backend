@@ -8,13 +8,19 @@ import {
     updateProduct,
     deleteProduct,
  } from "../controllers/products";
+import ImageUpload from "../middlewares/imageUpload";
+import { upload } from "../storage";
 
- 
 const productRouter = Router();
 
 productRouter.get('/', getAllProducts);
 
-productRouter.post('/', validateProductRequest, createNewProduct);
+productRouter.post('/',
+    upload.single("image"),
+    validateProductRequest,
+    ImageUpload,
+    createNewProduct
+);
 
 productRouter.put('/:productId', updateProduct);
 
